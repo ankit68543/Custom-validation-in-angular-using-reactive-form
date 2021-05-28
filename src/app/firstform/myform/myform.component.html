@@ -1,0 +1,66 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="Save()" autocomplete="off">
+    <table>
+      <tr>
+        <td><label>Email</label></td>
+        <td>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="please enter your email"
+          />
+        </td>
+        <td><app-error [control]="form.get('email')"></app-error></td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Quantity</label>
+        </td>
+        <td>
+          <input
+            type="text"
+            id="quantity"
+            formControlName="quantity"
+            placeholder="please enter quantity"
+          />
+        </td>
+        <td>
+          <app-error [control]="form.get('quantity')"></app-error>
+        </td>
+      </tr>
+    </table>
+
+
+    <table *ngIf="emailValue && quantityValue">
+      <tr>
+        <td>
+          Only for brotherhood Ram bhai :D
+        </td>
+        <td>
+         Email 
+        </td>
+        <td>
+          Quantity 
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          ===========================>>>>>
+        </td>
+        <td>
+          {{emailValue}}
+        </td>
+        <td>
+           {{quantityValue}}
+        </td>
+
+      </tr>
+
+    </table>
+
+    <input type="submit" value="Submit" />
+  </form>
+</div>
